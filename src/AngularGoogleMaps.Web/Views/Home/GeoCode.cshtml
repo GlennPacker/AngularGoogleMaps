@@ -5,9 +5,21 @@
 
 <div>
     {{message}}
-    <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+    <ui-gmap-google-map center='loc' zoom='15'></ui-gmap-google-map>
+
+    @*<ui-gmap-google-map id="map-canvas" center="map.center" zoom="map.zoom" draggable="true" options="options" control="map.control">
+        <ui-gmap-search-box template="searchBox.template" events="searchBox.events" parentdiv="searchBox.parentdiv"></ui-gmap-search-box>
+        <ui-gmap-markers idkey="map.idkey" models="map.markers" coords="'self'" icon="'icon'" click="'onClicked'" fit="true"></ui-gmap-markers>
+    </ui-gmap-google-map>*@
+
 </div>
 
 <div>
-    <input type="text" value="9 Chichester Road Hellingly BN27 4bf" data-ng-model="address" name="address" id="address" />
+    <input type="text" value="9 Chichester Road Hellingly BN27 4bf" data-ng-model="address" name="address" id="address" data-ng-change="Centre()" />
+</div>
+
+<div class="col-xs-12 col-md-12" id="searchBoxParent">
+    <script type="text/ng-template" id="searchBox.template.html">
+        <input type="text" ng-model="address" placeholder="Search Address" required />
+    </script>
 </div>
