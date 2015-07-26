@@ -1,26 +1,18 @@
-﻿var geocont = angular.module('geocodecontroller', ['uiGmapgoogle-maps']);
+﻿var geocont = angular.module('geocodeController.cont', ['uiGmapgoogle-maps']);
 
-var cont = geocont.controller("geocodecontroller", function ($scope, uiGmapGoogleMapApi) {
+var cont = geocont.controller("GeocodeController", function ($scope, uiGmapGoogleMapApi) {
     $scope.markers = []
-    $scope.location = { "k": 50.888169, "D": 0.26173930000004475 };
-    $scope.lat = 50.888169
-    $scope.lon = 0.26173930000004475
-    $scope.loc = { latitude: 10.888169, longitude: 0.26173930000004475 }
-
-
-    uiGmapGoogleMapApi.then(function (maps) {
-        $scope.map = {
-            streetViewControl: true,
-            zoom: 15
-        };
-
-        var geocoder = new google.maps.Geocoder();
-        geocoder.geocode({ "address": '9 chichester road hellingly bn 27 4bf' }, function (results, status) {
-            if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
-                $scope.loc = { latitude: results[0].geometry.location.k, longitude: results[0].geometry.location.D };
-            }
-        });
+    $scope.loc = { latitude: 50.888169, longitude: 0.26173930000004475 }
+    
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ "address": '9 chichester road hellingly bn 27 4bf' }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
+            $scope.loc = { latitude: results[0].geometry.location.k, longitude: results[0].geometry.location.D };
+            $scope.addMarker = { latitude: results[0].geometry.location.k, longitude: results[0].geometry.location.D };
+        }
     });
+
+    uiGmapGoogleMapApi.then(function (maps) {});
 
     $scope.Centre = function () {
         var geocoder = new google.maps.Geocoder();
@@ -31,7 +23,10 @@ var cont = geocont.controller("geocodecontroller", function ($scope, uiGmapGoogl
         });
     }
 
-    $scope.message = "hello";
+    //$scope.addMarker = function () {
+    //    $scope.markers.push($scope.loc);
+    //    console.log('Maker add: ' + $scope.markers);
+    //};  
 });
 
 cont.config(function (uiGmapGoogleMapApiProvider) {

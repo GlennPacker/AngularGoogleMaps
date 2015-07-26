@@ -1,14 +1,13 @@
-﻿var mapcont = angular.module('mapcont', ['uiGmapgoogle-maps']);
+﻿var mapcont = angular.module('mapController.cont', ['uiGmapgoogle-maps']);
 
-var cont = mapcont.controller("mapcont", function ($scope, uiGmapGoogleMapApi) {
+var cont = mapcont.controller("MapController", function ($scope, uiGmapGoogleMapApi) {
     $scope.markers = []
-
 
     uiGmapGoogleMapApi.then(function (maps) {
         $scope.map = {
-            center: { latitude: 0, longitude: -73 },
+            center: { latitude: 50.8, longitude: 0.26 },
             streetViewControl: true,
-            zoom: 8
+            zoom: 10
         };
     });
 });

@@ -22,14 +22,29 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li><a href="#/basicmap">Basic Map</a></li>
-                    <li><a href="#/geocode">Geo Code</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">JavaScript <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Basics", "BasicMap", "Home")</li>
+                            <li>@Html.ActionLink("Base Map Options (Map Type)", "BaseMapOptions", "Home")</li>
+                            <li>@Html.ActionLink("Map Control", "MapControl", "Home")</li>
+                        </ul>
+                    </li>
+                                        
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Angular <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Angular/#/basicmap">Basic Map</a></li>
+                            <li><a href="/Angular/#/geocode">Geo Code</a></li>
+                        </ul>
+                    </li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+                
             </div>
         </div>
     </div>
     <div class="container body-content">
+        <br/>
         @RenderBody()
         <hr />
         <footer>

@@ -1,0 +1,99 @@
+﻿
+<script src="~/Scripts/jquery-1.11.3.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script>
+    $(document).ready(function () {
+    CSS();
+    })
+
+    function CSS() {
+        $('.part').css('cursor', 'pointer');
+        $('.part p').css('cursor', 'default')
+    }
+
+
+    function Initialize() {
+        var mapOptions = {
+            center: new google.maps.LatLng(50.87, 0.25),
+            zoom: 14,
+            mapTypeId: google.maps.MapTypeId.SATELLITE
+        };
+        var map = new google.maps.Map(document.getElementById('mapdiv'), mapOptions);
+        InitializeEvents(map);
+    };
+
+    google.maps.event.addDomListener(window, "load", Initialize);
+
+    function InitializeEvents(map)
+    {
+        $('#Road').on('click', function () {
+            map.setMapTypeId(google.maps.MapTypeId.ROADMAP)
+        })
+
+        $('#Satelite').on('click', function () {
+            map.setMapTypeId(google.maps.MapTypeId.SATELLITE)
+        })
+
+        $('#HyBrid').on('click', function () {
+            map.setMapTypeId(google.maps.MapTypeId.HYBRID)
+        })
+
+        $('#Terrain').on('click', function () {
+            map.setMapTypeId(google.maps.MapTypeId.TERRAIN)
+        })
+    }
+</script>
+
+<div id="mapdiv" style="height:400px;">
+
+</div>
+
+
+<div>
+    <h1 class="heading">Map Options</h1>
+    <p>
+        var mapOptions = {<br/>
+        &nbsp; center: new google.maps.LatLng(50.87, 0.25),<br />
+        &nbsp; zoom: 14,<br />
+        &nbsp; mapTypeId: google.maps.MapTypeId.SATELLITE<br />
+        };
+
+    </p>
+</div>
+
+
+<div id="Road" class="part">
+    <h1 class="heading" >Road map</h1>
+    <p>
+        function btnClicked(){<br />
+        map.setMapTypeID(google.maps.MapTypeId.ROADMAP)<br />
+        }<br />
+    </p>
+</div>
+
+<div id="Satelite" class="part">
+    <h1>Satelite</h1>
+    <p>
+        function btnClicked(){<br />
+        map.setMapTypeID(google.maps.MapTypeId.SATELLITE)<br />
+        }<br />
+    </p>
+</div>
+
+<div id="HyBrid" class="part">
+    <h1 class="heading">HyBrid</h1>
+    <p>
+        function btnClicked(){<br />
+        map.setMapTypeID(google.maps.MapTypeId.HYBRID)<br />
+        }<br />
+    </p>
+</div>
+
+<div id="Terrain" class="part">
+    <h1 class="heading">Terrain</h1>
+    <p>
+        function btnClicked(){
+        map.setMapTypeID(google.maps.MapTypeId.TERRAIN)
+        }
+    </p>
+</div>

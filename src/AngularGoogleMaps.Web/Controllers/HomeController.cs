@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace AngularGoogleMaps.Web.Controllers
 {
@@ -10,17 +6,22 @@ namespace AngularGoogleMaps.Web.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View("Index");
         }
-
+                
         public ActionResult BasicMap()
         {
-            return View();
+            return View("BasicMap");
         }
 
-        public ActionResult GeoCode()
+        public ActionResult BaseMapOptions()
         {
-            return View();
+            return View("BaseMapOptions");
+        }
+
+        public ActionResult MapControl()
+        {
+            return View("MapControl");
         }
     }
 }

@@ -1,17 +1,32 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
-<script src="~/Scripts/angular.min.js"></script>
-<script src="~/Scripts/angular-route.js"></script>
-<script src="~/Scripts/lodash.min.js"></script>
-<script src="~/Scripts/angular-google-maps.min.js"></script>
-@*    <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>*@
-<script src="~/Js/app.js"></script>
-<script src="~/Js/mapcontroller.js"></script>
-<script src="~/Js/geocodecontroller.js"></script>
+﻿
+<div class="page-header">
+    <h1>Google Maps <small>playing with google maps</small></h1>
+</div>
 
-<div data-ng-app="mapapp">
-    <div data-ng-view="">
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">JavaScript</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    <li>@Html.ActionLink("Basics", "BasicMap", "Home")</li>
+                    <li>@Html.ActionLink("Base Map Options (Map Type)", "BaseMapOptions", "Home")</li>
+                    <li>@Html.ActionLink("Map Control", "MapControl", "Home")</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Angular</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    <li><a href="/Angular/#/basicmap">Basic Map</a></li>
+                </ul>
+            </div>
+        </div>
 
     </div>
-</div>

@@ -1,7 +1,18 @@
 ﻿
-@{
-    Layout = null;
-}
-<div>
-    <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
-</div>
+    <script src="~/Scripts/jquery-1.11.3.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script>
+        function Initialize() {
+            var mapOptions = {
+                center: new google.maps.LatLng(50.87, 0.25),
+                zoom: 14
+            };
+            var gmap = new google.maps.Map(document.getElementById('mapdiv'), mapOptions);
+        };
+
+        google.maps.event.addDomListener(window, "load", Initialize);
+    </script>
+
+    <div id="mapdiv" style="height:400px;">
+
+    </div>
