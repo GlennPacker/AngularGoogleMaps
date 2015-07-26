@@ -1,14 +1,14 @@
-﻿var mapApp = angular.module('mapapp', ['ngRoute', 'mapcont', 'geocodecontroller']);
+﻿var mapApp = angular.module('Mapapp.Main', ['ngRoute', 'mapController.cont', 'geocodeController.cont']);
 
 mapApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
       when('/basicmap', {
-          templateUrl: '/Home/BasicMap',
-          controller: 'mapcont'
+          templateUrl: '/Angular/BasicMap',
+          controller: 'MapController'
       }).
         when('/geocode', {
-            templateUrl: '/Home/GeoCode',
-            controller: 'geocodecontroller'
+            templateUrl: '/Angular/GeoCode',
+            controller: 'GeocodeController'
         }).
       otherwise({
           redirectTo: '/basicmap'

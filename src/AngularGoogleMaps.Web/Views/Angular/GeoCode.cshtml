@@ -4,8 +4,9 @@
 }
 
 <div>
-    {{message}}
-    <ui-gmap-google-map center='loc' zoom='15'></ui-gmap-google-map>
+    <ui-gmap-google-map center='loc' zoom='16'>
+        <ui-gmap-markers idkey="address" models="markers" coords="''loc''" icon="'icon'" click="'onClicked'" fit="true"></ui-gmap-markers>
+    </ui-gmap-google-map>
 
     @*<ui-gmap-google-map id="map-canvas" center="map.center" zoom="map.zoom" draggable="true" options="options" control="map.control">
         <ui-gmap-search-box template="searchBox.template" events="searchBox.events" parentdiv="searchBox.parentdiv"></ui-gmap-search-box>
@@ -15,7 +16,11 @@
 </div>
 
 <div>
-    <input type="text" value="9 Chichester Road Hellingly BN27 4bf" data-ng-model="address" name="address" id="address" data-ng-change="Centre()" />
+    <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" class="form-control"  value="9 Chichester Road Hellingly BN27 4bf" data-ng-model="address" name="address" id="address" data-ng-change="Centre()" placeholder="9 Chichester Road Hellingly BN27 4bf" />
+    </div>
+    
 </div>
 
 <div class="col-xs-12 col-md-12" id="searchBoxParent">
