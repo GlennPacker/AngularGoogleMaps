@@ -23,5 +23,20 @@ namespace AngularGoogleMaps.Web.Controllers
         {
             return View("MapControl");
         }
+
+        public ActionResult Marker()
+        {
+            return View("Marker");
+        }
+
+        public ActionResult PolyLine()
+        {
+            return View("PolyLine");
+        }
+
+        public ActionResult Polygon()
+        {
+            return View("Polygon");
+        }
     }
 }

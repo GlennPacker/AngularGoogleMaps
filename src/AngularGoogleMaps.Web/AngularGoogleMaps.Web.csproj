@@ -228,6 +228,9 @@
     <Content Include="Views\Home\BasicMap.cshtml" />
     <Content Include="Views\Home\BaseMapOptions.cshtml" />
     <Content Include="Views\Home\MapControl.cshtml" />
+    <Content Include="Views\Home\Marker.cshtml" />
+    <Content Include="Views\Home\PolyLine.cshtml" />
+    <Content Include="Views\Home\Polygon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
