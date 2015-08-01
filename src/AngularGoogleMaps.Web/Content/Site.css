@@ -24,3 +24,7 @@ textarea {
 }
 
 .angular-google-map-container { height: 400px; }
+
+.codeblock{
+    white-space: pre;
+}

@@ -1,0 +1,64 @@
+﻿
+    <script src="~/Scripts/jquery-1.11.3.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script>
+        function Initialize() {
+            var mapOptions = {
+                center: new google.maps.LatLng(50.87, 0.25),
+                zoom: 14
+            };
+            var gmap = new google.maps.Map(document.getElementById('mapdiv'), mapOptions);
+
+            var lineCoords =
+                [
+                    new google.maps.LatLng(50.87, 0.25),
+                    new google.maps.LatLng(50.875, 0.255),
+                    new google.maps.LatLng(50.87, 0.255),
+                    new google.maps.LatLng(50.88, 0.256),
+                ]
+            var anarea = new google.maps.Polygon({
+                path: lineCoords,
+                strokeColor: '#0000aa',
+                strokeOpacity: .8,
+                strokeWeight: 1,
+                fillColor: '#000088',
+                filOpacity: .5
+            });
+
+            anarea.setMap(gmap);
+        };
+
+        google.maps.event.addDomListener(window, "load", Initialize);
+    </script>
+
+    <div id="mapdiv" style="height:400px;"></div>
+
+<div class="container">
+    <h3 class="heading">Polygon</h3>
+    <div class="codeblock">
+        var mapOptions = {
+            center: new google.maps.LatLng(50.87, 0.25),
+            zoom: 14
+        };
+        var gmap = new google.maps.Map(document.getElementById('mapdiv'), mapOptions);
+
+        var lineCoords = [        [
+            new google.maps.LatLng(50.87, 0.25),
+            new google.maps.LatLng(50.875, 0.255),
+            new google.maps.LatLng(50.87, 0.255),
+            new google.maps.LatLng(50.88, 0.256),
+        ]
+
+        var anarea = new google.maps.Polygon({
+            path: lineCoords,
+            strokeColor: '#0000aa',
+            strokeOpacity: .8,
+            strokeWeight: 1,
+            fillColor: '#000088',
+            filOpacity: .5
+        });
+
+        anarea.setMap(gmap);
+    </div>
+    
+</div>

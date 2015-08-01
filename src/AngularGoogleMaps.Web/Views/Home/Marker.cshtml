@@ -1,0 +1,44 @@
+﻿
+    <script src="~/Scripts/jquery-1.11.3.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script>
+        function Initialize() {
+            
+
+            var mapOptions = {
+                center: new google.maps.LatLng(50.87, 0.25),
+                zoom: 14
+            };
+            var gmap = new google.maps.Map(document.getElementById('mapdiv'), mapOptions);
+
+            var centreMarker = new google.maps.Marker({
+                position: new google.maps.LatLng(50.87, 0.25),
+                map: gmap,
+                title: "A Marker"
+            })
+        };
+
+        google.maps.event.addDomListener(window, "load", Initialize);
+    </script>
+
+    <div id="mapdiv" style="height:400px;"></div>
+
+<div class="container">
+    <h3 class="heading">Marker</h3>
+    <div class="codeblock">
+        var mapOptions = {
+            center: new google.maps.LatLng(50.87, 0.25),
+            zoom: 14
+        };
+
+        var gmap = new google.maps.Map(document.getElementById('mapdiv'), mapOptions);
+
+        var centreMarker = new google.maps.Marker({
+            //icon: imageURL,   // for adding a custom image for the marker
+            position: new google.maps.LatLng(50.87, 0.25),
+            map: gmap,
+            title: "A Marker"
+        })
+    </div>
+    
+</div>
