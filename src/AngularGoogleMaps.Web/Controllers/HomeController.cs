@@ -43,5 +43,10 @@ namespace AngularGoogleMaps.Web.Controllers
         {
             return View("Geocode");
         }
+
+        public ActionResult Directions()
+        {
+            return View("Directions");
+        }
     }
 }

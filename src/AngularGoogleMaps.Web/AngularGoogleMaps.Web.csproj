@@ -232,6 +232,7 @@
     <Content Include="Views\Home\PolyLine.cshtml" />
     <Content Include="Views\Home\Polygon.cshtml" />
     <Content Include="Views\Home\Geocode.cshtml" />
+    <Content Include="Views\Home\Directions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
