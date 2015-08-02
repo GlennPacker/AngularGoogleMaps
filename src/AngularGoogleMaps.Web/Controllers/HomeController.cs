@@ -38,5 +38,10 @@ namespace AngularGoogleMaps.Web.Controllers
         {
             return View("Polygon");
         }
+
+        public ActionResult GeoCode()
+        {
+            return View("Geocode");
+        }
     }
 }
