@@ -1,0 +1,96 @@
+﻿
+<script src="~/Scripts/jquery-1.11.3.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script>
+    var gmap;
+    var geocoder = new google.maps.Geocoder();
+
+    function Initialize() {
+        var mapOptions = {
+            center: new google.maps.LatLng(50.87, 0.25),
+            zoom: 14
+        };
+        var initialCenter = mapOptions.center;
+        var initialZoom = mapOptions.zoom;
+
+        gmap = new google.maps.Map(document.getElementById('mapdiv'), mapOptions);
+    };
+
+    google.maps.event.addDomListener(window, "load", Initialize);
+
+    function geocodeAddress() {
+        var address = $('#Address').val();
+        geocoder.geocode({ 'address': address }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                gmap.setCenter(results[0].geometry.location);
+                $('#location').html('location: ' + results[0].geometry.location)
+                var marker = new google.maps.Marker({
+                    map: gmap,
+                    position: results[0].geometry.location
+                });
+                gmap.setZoom(17);
+                gmap.panTo(marker.position)
+            } else {
+                alert("geode failed with the folloring error: " + status)
+            }
+        })
+    }
+
+</script>
+
+<div id="mapdiv" style="height:400px;"></div>
+
+<div class="container">
+    <div class="col-md-6">
+        <h3 class="heading">Geocoding</h3>
+        <p class="codeblock">
+            var gmap;
+            var geocoder = new google.maps.Geocoder();
+
+            function Initialize() {
+                var mapOptions = {
+                center: new google.maps.LatLng(50.87, 0.25),
+                zoom: 14
+                };
+
+                var initialCenter = mapOptions.center;
+                var initialZoom = mapOptions.zoom;
+
+                gmap = new google.maps.Map(document.getElementById('mapdiv'), mapOptions);
+            };
+
+            google.maps.event.addDomListener(window, "load", Initialize);
+
+            function geocodeAddress() {
+                var address = $('#Address').val();
+                geocoder.geocode({ 'address': address }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    gmap.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: gmap,
+                        position: results[0].geometry.location
+                    });
+                    gmap.setZoom(17);
+                    gmap.panTo(marker.position)
+                } else {
+                    alert("geode failed with the folloring error: " + status)
+                }
+            }
+            )
+            }
+        </p>
+    </div>
+
+    <div class="col-md-6">
+        <div class="input-group">
+            <label for="Address">Address</label>
+            <input type="text" id="Address" value="9 Chichester road hellingly bn27 4bf" class="form-control" />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" onclick="geocodeAddress()">find</button>
+            </span>
+        </div>
+        <div id="location">
+            result: 
+        </div>
+    </div>
+</div>
