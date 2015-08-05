@@ -1,2 +1,2 @@
 # AngularGoogleMaps
-Angular Google Maps
+Google Maps examples with and without angular
